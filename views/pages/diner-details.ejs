@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <h1 class="pageIntro">Diner Details</h1>
+    <div class="stripe"></div>
+    <hr>
+
+    <div id="dinerDetails" class="details">
+        <div class="block">
+            <button class="btn btn-secondary modal-btn delete" type="button" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <h3 class="detailName"><%= diner.name %></h3>
+            <hr>
+
+            <p><b>Location:</b> <%= diner.location %></p>
+            <p><b>Sodas:</b>
+                <% if(sodaArr.length > 0) { %>
+                    <%= sodaArr %></p>
+                <% } %>
+                <% if(sodaArr.length === 0) { %>
+                    Sorry, we're not serving any sodas at this time..</p>
+                <% } %>
+            <hr>
+            
+            <a href="/diners"><button class="btn btn-secondary" type="button">All Diners</button></a>
+            <button class="btn btn-primary" type="button" id="addSodaForm" data-id=<%= diner._id%>>Add Soda</button>
+            <button class="btn btn-danger" type="button" id="deleteSodaForm" data-id=<%= diner._id%>>Delete Soda</button>
+            
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="deleteModalLabel"><%= diner.name %></h3>
+                    <button type="button" class="close cancelBtn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Are you sure you wish to delete this diner?</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary cancelBtn" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-danger deleteBtn" type="button" id="diner-delete"
+                        data-id=<%= diner._id%>>Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

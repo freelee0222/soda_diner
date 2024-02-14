@@ -1,0 +1,162 @@
+body {
+    background-image: url(../img/muted_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    margin: 80px;
+    min-width: 400px;
+    min-height: 1000px;
+    font-size: 18pt;
+}
+.navbar {
+    min-height: 100px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.navbar-nav {
+   position: absolute;
+   left: 65%;
+}
+
+.nav-item {
+    font-size: 24pt;
+}
+
+.selection {
+    text-shadow: black 1px 1px 1px;
+}
+
+#title {
+    position: relative;
+    top: 100px;
+}
+
+#titleImg {
+    height: 180px;
+}
+
+.introText {
+    color: whitesmoke;
+    width: 40%;
+    margin: auto;
+}
+
+.homeBtn {
+    font-size: 24pt;
+    height: 80px;
+    width: 240px;
+}
+
+.pageIntro {
+    font-size: 64pt;
+    color: whitesmoke;
+    text-shadow: 10px 10px 10px;
+}
+
+#feedback {
+    text-decoration: underline;
+    color: whitesmoke;
+    margin-bottom: 40px;
+}
+
+.modal-dialog {
+    margin-top: 15%;
+}
+
+.stripe {
+    background-color: whitesmoke;
+    height: 15px;
+    width: 40%;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}
+
+.block {
+    background-color: rgb(244, 248, 255);
+    border-radius: 8px;
+    width: 75%;
+    min-width: 340px;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+label {
+    font-size: 24pt; 
+}
+
+.slider {
+    width: 40%
+}
+
+.btn, .badge {
+    box-shadow: 10px 5px 5px black;
+    margin: 12px;
+}
+
+.btn:active {
+    box-shadow: 7px 7px 3px black;
+}
+
+#delete-btn {
+    position: relative;
+    left: 100px;
+}
+
+ .detailName {
+     font-size: 60pt;
+     text-shadow: 4px 4px 8px;
+ }
+
+ #soda-select {
+     height: 150px;
+     width: 200px;
+     margin-top: 20px;
+ }
+
+ .delete {
+    position: relative;
+    left: 35%;
+ }
+
+ @media screen and (max-width: 950px) {
+    .navbar-nav {
+        position: absolute;
+        left: 50%;
+    }
+
+    #titleImg {
+      height: 120px;
+    }
+
+    .stripe {
+        background-color: white;
+        height: 8px;
+        width: 40%;
+        margin: 20px auto;
+    }
+
+    #introText, #feedback {
+        color: white;
+        width: 50%;
+        margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 620px) {
+    #titleImg {
+      height: 60px;
+    }
+
+    .stripe {
+        background-color: white;
+        height: 8px;
+        width: 40%;
+        margin: 20px auto;
+    }
+
+    #introText, #feedback {
+        color: white;
+        width: 50%;
+        margin: auto;
+    }
+  }

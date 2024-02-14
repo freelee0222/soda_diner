@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <div id="title">
+    <img class="intro" id="titleImg" src="/img/title.png">
+    <p class="introText" id="createText">To add a soda or diner now,.. make your selection  below and get started.</p>
+      <div class="stripe"></div>
+        <p class="intro introText" class="mt-5">Soda/Diner contains collections of various diners and sodas. Each diner serves many different kinds of sodas, which will be displayed when you navigate to the page for that diner. CREATE new sodas/diners.  READ the details for a soda/diner. UPDATE what sodas each diner serves. DELETE sodas/diners.</p>
+
+    <button class="btn btn-primary homeBtn mt-5" type="button" id="create">Create</button>
+    <a href="/add-soda" ><button class="btn btn-primary homeBtn mt-5" id="addSodaDirect" type="button">Add Soda</button></a>
+    <a href="/add-diner" ><button class="btn btn-primary homeBtn mt-5" id="addDinerDirect" type="button">Add Diner</button></a>
+  </div>
+
+  
+
+  <%- include('../partials/footer'); %>
+</body>
+
+</html>

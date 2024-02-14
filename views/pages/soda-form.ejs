@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <h1 class="pageIntro">New Soda</h1>
+    <div class="stripe"></div>
+    <hr>
+
+    <h1 id="feedback" class="m-3"></h1>
+
+    <div class="soda-form container">
+        <form id="create-soda" class="block">
+            <label for="name">Soda Name:</label>
+            <input type="text" id="name" name="name">
+            <small class="sodaNameError ui label  bg-danger text-white p-1">Please enter a soda name.</small>
+            <br>
+
+            <hr>
+            <label for="rating" data-toggle="tooltip" data-placement="right" title="Slide to change the taste rating.">Taste Rating:<span id="ratingDisplay"> 5</span></label><br>
+            <input type="range" id="rating" class="slider" name="rating">
+            <br>
+            <label for="fizziness" data-toggle="tooltip" data-placement="right" title="Slide to change the fizziness rating.">Fizziness:<span id="fizzinessDisplay"> 5</span></label><br>
+            <input type="range" id="fizziness" class="slider" name="fizziness">
+            <br>
+            <hr>
+            
+            <button class="btn btn-primary" type="submit" id="soda-submit">Done</button>
+        </form>
+    </div>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

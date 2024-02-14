@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <h1 class="pageIntro">Delete Soda</h1>
+    <hr>
+
+    <div>
+        <div class="block">
+            <h3 class="detailName"><%= diner.name %></h3>
+            <hr>
+
+            <form id="add-soda">
+                <label for="sodas">Choose sodas to delete:</label>
+                <br>
+                <small>(Hold cmd/ctrl to choose multiple selections)</small>
+                <br>
+                <select name="soda" id="soda-select" multiple>
+                    <% sodas.forEach(soda => { %>
+                        <% if (soda.isServed && diner.sodas.includes(soda.name)) { %>
+                        <option value="<%= soda.name %>"><%= soda.name %></option>
+                        <% } %>
+                    <% }) %>
+                </select>
+                <hr>
+            </form>
+
+            <a href="/diner-details/<%= diner._id%>" ><button class="btn btn-secondary" type="button" id="back">Cancel</button></a>
+            <button id="diner-deleteSodas" class="btn btn-danger" type="button" data-id=<%= diner._id%>>Delete</button>
+        </div>
+    </div>
+
+    <h1 id="feedback" class="m-3"></h1>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

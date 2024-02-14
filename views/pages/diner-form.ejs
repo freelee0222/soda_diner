@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <h1 class="pageIntro">New Diner</h1>
+    <div class="stripe"></div>
+    <hr>
+
+    <h1 id="feedback" class="m-3"></h1>
+
+    <div class="diner-form container">
+        <form id="create-diner" class="block">
+            <label for="name">Diner Name:</label>
+            <input type="text" id="name" name="name">
+            <small class="dinerNameError ui label  bg-danger text-white p-1">Please enter a diner name.</small>
+             <br>
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+            <small class="dinerLocationError ui  label  bg-danger text-white p-1">Please enter a diner location.</small>
+            <br>
+            <hr>
+            <% if (sodas.length < 1) { %>
+                <h1>There are currently no sodas available.</h1>
+                <p>You may still add a diner without serving sodas at this time.</p>
+                <p> -or- </p>
+                <a href="/add-soda">Click here to Add a Soda now. </a>
+                <hr>
+            <% } %>
+            <% if(sodas.length > 0) { %>
+                <label for="sodas">Choose sodas to serve:</label>
+                <br>
+                <small>(Hold cmd/ctrl to choose multiple selections)</small>
+                <br>
+                <select name="soda" id="soda-select" multiple>
+                    <% sodas.forEach(soda => { %>
+                        <% if (soda.isServed) { %>
+                        <option value="<%= soda.name %>"><%= soda.name %></option>
+                        <% } %>
+                    <% }) %>
+                </select>
+                <hr>
+            <% } %>
+
+            <button class="btn btn-primary" type="submit" id="diner-submit">Done</button>
+        </form>
+    </div>
+
+
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

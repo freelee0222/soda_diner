@@ -1,0 +1,18 @@
+{
+  "name": "sodaDiner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "seed": "mongo soda-diner --eval 'printjson(db.dropDatabase())' && mongoimport --db=soda-diner --collection=sodas --file=db_seed/sodas.json && mongoimport --db=soda-diner --collection=diners --file=db_seed/diners.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  }
+}

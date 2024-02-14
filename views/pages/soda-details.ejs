@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <h1 class="pageIntro">Soda Details</h1>
+  <div class="stripe"></div>
+  <hr>
+
+  <div id="sodaDetails" class="details">
+    <div class="block" id="<%= soda.name %>">
+      <button class="btn btn-secondary modal-btn delete"  type="button"  data-toggle="modal" data-target="#deleteModal">Delete</button>
+      <h3 class="detailName"><%= soda.name %></h3>
+      <hr>
+      <p><b>Taste Rating:</b> <%= soda.rating %></p>
+      <p><b>Fizziness:</b> <%= soda.fizziness %></p>
+      <p><b>Currently Served:</b> 
+        <% if(soda.isServed) { %>
+        Yes</p>
+        <% } %>
+        <% if(!soda.isServed) { %>
+          No</p>
+        <% } %>
+        <hr>
+
+        <a href="/sodas"><button class="btn btn-secondary" type="button">All Sodas</button></a>
+        <% if (soda.isServed === true ){ %>
+          <button id="soda-serveStop" class="btn btn-danger" type="button" data-id=<%= soda._id%>>Stop Serving</button>
+          <% } %>
+          <% if (soda.isServed === false) { %>
+          <button id="soda-serve" class="btn btn-success" type="button"  data-id=<%= soda._id%>>Start Serving</button>
+          <% } %>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="deleteModalLabel"><%= soda.name %></h3>
+          <button type="button" class="close cancelBtn" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2>Are you sure you wish to delete this soda?</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancelBtn" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-danger deleteBtn" type="button" id="soda-delete" data-id=<%= soda._id%>>Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
+</body>
+
+</html>

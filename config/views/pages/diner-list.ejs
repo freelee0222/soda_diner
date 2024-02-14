@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <h1 class="pageIntro">Diner List</h1>
+  <div class="stripe"></div>
+  <hr>
+
+  <div id="diners" class="block">
+    <hr>
+      <%if(diners.length < 1) {%>
+        <h1>There are currently no diners in the database.</h1>
+      <% } %>
+    <%diners.forEach(diner => { %>
+        <a href="/diner-details/<%= diner._id %>" class="dinerDetails selection"><%= diner.name %>
+          <% if(Date.now() - diner.createdOn < 120000) { %>
+            <span class="badge badge-danger">New</span>
+          <% } %>
+        </a>
+        <hr>
+    <% }) %>
+    <a href="/add-diner"><button class="btn btn-primary" type="button">Add Diner</button></a>
+</div>
+
+  
+
+  <%- include('../partials/footer'); %>
+</body>
+</html>
+

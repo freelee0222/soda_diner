@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <h1 class="pageIntro">Soda List</h1>
+    <div class="stripe"></div>
+    <hr>
+
+    <div id="sodas" class="block">
+        <hr>
+        <%if(sodas.length < 1) {%>
+            <h1>There are currently no sodas in the database.</h1>
+        <% } %>
+        <% sodas.forEach(soda => { %>
+            <a href="/soda-details/<%= soda._id %>" class="sodaDetails selection"><%= soda.name %>
+                <% if(Date.now() - soda.createdOn < 120000) { %>
+                    <span class="badge badge-danger">New</span>
+                <% } %>
+            </a>
+            <hr>
+        <% }) %>
+        <a href="add-soda"><button class="btn btn-primary" type="button" id="soda-add">Add Soda</button></a>
+    </div>
+
+    
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>
